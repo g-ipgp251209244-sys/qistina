@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mara's Laboratory</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #850d18;
+  color: white;
+}
+
+.lab {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 6%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 15%, #ff4242 0%, transparent 30%),
+    radial-gradient(circle at 10% 85%, #a80d21 0%, transparent 35%),
+    linear-gradient(135deg, #590b15, #bd1828 55%, #ed292c);
+  position: relative;
+}
+
+/* TECH GRID */
+
+.lab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#ffffff0b 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff0b 1px, transparent 1px);
+  background-size: 35px 35px;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* TOP LABEL */
+
+.top-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff40;
+  padding-bottom: 15px;
+  margin-bottom: 35px;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.status {
+  color: #75f4ff;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* SECTION 1 */
+
+.welcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  padding: 30px 0 65px;
+}
+
+.small-title {
+  color: #72f5ff;
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(28px, 4.5vw, 55px);
+  line-height: 1.2;
+  color: #ffdf72;
+  text-shadow: 3px 4px #75101a;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  background: #102a47;
+  border: 1px solid #65dfff;
+  border-radius: 15px;
+  padding: 22px;
+  box-shadow: 0 0 20px #00d9ff35;
+}
+
+.welcome-text p {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.mara-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+  position: relative;
+}
+
+.mara-frame {
+  width: min(270px, 85%);
+  aspect-ratio: 1;
+  border: 3px solid #76eaff;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #173b62, #081a30);
+  box-shadow: 0 0 35px #00d9ff70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mara-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.character-caption {
+  position: absolute;
+  bottom: 5px;
+  background: #102a47;
+  border: 1px solid #71edff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  color: #ffdf72;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* SECTION 2 */
+
+.shapes-section {
+  background: #0b2038;
+  border: 1px solid #55dfff;
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 10px 30px #0005;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffdc70;
+  font-size: clamp(22px, 3vw, 32px);
+}
+
+.section-heading p {
+  color: #a8eaff;
+  font-size: 17px;
+  margin-top: 8px;
+  margin-bottom: 28px;
+}
+
+.shape-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px;
+}
+
+.shape-card {
+  background: linear-gradient(160deg, #173b60, #0a192d);
+  border: 1px solid #48cafa;
+  border-radius: 16px;
+  padding: 23px 12px;
+  text-align: center;
+  transition: .3s;
+}
+
+.shape-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 0 25px #26dfff70;
+  border-color: #ffe16e;
+}
+
+.shape-visual {
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* SHAPE DRAWINGS */
+
+.square {
+  width: 65px;
+  height: 65px;
+  background: #32c9ff;
+  border: 3px solid white;
+  box-shadow: 0 0 18px #20cfff;
+}
+
+.rectangle {
+  width: 95px;
+  height: 60px;
+  background: #ffca51;
+  border: 3px solid white;
+  box-shadow: 0 0 18px #ffca51;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 75px solid #71e6a7;
+  filter: drop-shadow(0 0 10px #71e6a7);
+}
+
+.circle {
+  width: 70px;
+  height: 70px;
+  background: #ed8bff;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 18px #ed8bff;
+}
+
+.shape-card h3 {
+  color: #ffdd70;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.shape-card p {
+  color: #d9eaff;
+  font-size: 15px;
+}
+
+.investigation {
+  margin-top: 25px;
+  background: linear-gradient(90deg, #173b60, #174b66);
+  border-left: 5px solid #70edff;
+  padding: 18px;
+  border-radius: 10px;
+}
+
+.investigation h3 {
+  color: #ffdc70;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.investigation p {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+  color: #a8eaff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 30px;
+}
+
+@media(max-width: 700px) {
+  .welcome {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .welcome-text {
+    text-align: left;
+  }
+
+  .mara-area {
+    order: -1;
+    min-height: 240px;
+  }
+
+  .mara-frame {
+    width: 210px;
+  }
+
+  .shape-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .top-label {
+    gap: 10px;
+  }
+
+  .shapes-section {
+    padding: 20px 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="lab">
+<div class="content">
+
+  <div class="top-label">
+    <div class="logo">✦ MECHA ACADEMY</div>
+    <div class="status">● YEAR 2 // MISSION ACTIVE</div>
+  </div>
+
+  <!-- SECTION 1: WELCOME -->
+
+  <section class="welcome">
+
+    <div>
+      <div class="small-title">
+        MECHA-MISI GEOMETRI // MARA'S LABORATORY
+      </div>
+
+      <h1>WELCOME TO<br>MARA'S LABORATORY!</h1>
+
+      <div class="welcome-text">
+        <p>
+          Hi, Math Heroes! I'm Mara. Today, we are
+          going to discover the 2D shapes that form
+          our 3D objects. Are you ready to investigate?
+        </p>
+      </div>
+    </div>
+
+    <div class="mara-area">
+
+      <!-- Replace image URL with Mara PNG URL -->
+      <div class="mara-frame">
+        <img
+          src="PASTE_MARA_PNG_URL_HERE"
+          alt="Mara from Mechamato"
+        >
+      </div>
+
+      <div class="character-caption">
+        YOUR LAB GUIDE: MARA
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: MEET THE 2D SHAPES -->
+
+  <section class="shapes-section">
+
+    <div class="section-heading">
+      <div class="small-title">LABORATORY DATABASE // 01</div>
+
+      <h2>MEET THE 2D SHAPES</h2>
+
+      <p>
+        Before we explore 3D objects, let's get to
+        know the basic 2D shapes!
+      </p>
+    </div>
+
+    <div class="shape-grid">
+
+      <div class="shape-card">
+        <div class="shape-visual">
+          <div class="square"></div>
+        </div>
+        <h3>SQUARE</h3>
+        <p>4 equal sides and 4 corners.</p>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-visual">
+          <div class="rectangle"></div>
+        </div>
+        <h3>RECTANGLE</h3>
+        <p>4 sides and 4 right angles.</p>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-visual">
+          <div class="triangle"></div>
+        </div>
+        <h3>TRIANGLE</h3>
+        <p>3 sides and 3 corners.</p>
+      </div>
+
+      <div class="shape-card">
+        <div class="shape-visual">
+          <div class="circle"></div>
+        </div>
+        <h3>CIRCLE</h3>
+        <p>A round shape with no corners.</p>
+      </div>
+
+    </div>
+
+    <div class="investigation">
+      <h3>✦ MARA'S TIP</h3>
+      <p>
+        Look carefully at each shape! These 2D shapes
+        will help us understand the faces and surfaces
+        of different 3D objects.
+      </p>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    MECHA-MISI GEOMETRI • EXPLORE • DISCOVER • LEARN
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
